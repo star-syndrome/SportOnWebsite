@@ -5,40 +5,52 @@ import Button from "../ui/button";
 
 const productList = [
 	{
-		name: "SportOn Product 1",
+		name: "SportOn SlowLivin",
 		category: "Running",
-		price: 450000,
+		price: 119000,
 		imgUrl: "product-1.png",
 	},
 	{
-		name: "SportOn Product 2",
-		category: "Running",
-		price: 250000,
+		name: "SportOn Rockets Tennis",
+		category: "Tennis",
+		price: 999000,
 		imgUrl: "product-2.png",
 	},
 	{
-		name: "SportOn Product 3",
+		name: "SportOn Hyperfast Shoes",
 		category: "Running",
-		price: 230000,
+		price: 329000,
 		imgUrl: "product-3.png",
 	},
 	{
-		name: "SportOn Product 4",
-		category: "Running",
-		price: 440000,
+		name: "SportOn HyperSoccer v2",
+		category: "Football",
+		price: 458000,
 		imgUrl: "product-4.png",
 	},
 	{
-		name: "SportOn Product 5",
+		name: "SportOn SlowLivin",
 		category: "Running",
-		price: 550000,
+		price: 119000,
 		imgUrl: "product-5.png",
 	},
 	{
-		name: "SportOn Product 6",
-		category: "Running",
+		name: "SportOn Basketball",
+		category: "Basketball",
 		price: 650000,
 		imgUrl: "product-6.png",
+	},
+	{
+		name: "SportOn Rockets Tennis",
+		category: "Tennis",
+		price: 999000,
+		imgUrl: "product-7.png",
+	},
+	{
+		name: "SportOn Hyperfast Shoes",
+		category: "Running",
+		price: 329000,
+		imgUrl: "product-8.png",
 	},
 ];
 
