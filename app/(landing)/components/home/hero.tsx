@@ -15,15 +15,17 @@ const HeroSection = () => {
 					className="grayscale absolute left-0 -top-20"
 				/>
 				<div className="relative ml-40 w-full">
-					<div className="text-primary italic">Friday Sale, 50%</div>
-					<h1 className="font-extrabold text-[95px] italic bg-linear-to-b leading-tight from-black to-[#979797] bg-clip-text text-transparent">
-						WEAR YOUR <br /> TOP-QUALITY <br /> SPORTSWEAR
-					</h1>
-					<p className="w-1/2 mt-10 leading-loose">
-						Engineered for endurance and designed for speed. Experience gear
-						that moves as fast as you do. Premium fabrics. Unmatched comfort.
-						Limitless motion.
-					</p>
+					<p className="text-primary italic">Friday Sale, 50%</p>
+					<div>
+						<h1 className="font-extrabold text-[95px] italic bg-linear-to-b leading-tight from-black to-[#979797] bg-clip-text text-transparent">
+							WEAR YOUR <br /> TOP-QUALITY <br /> SPORTSWEAR
+						</h1>
+						<p className="w-1/2 mt-10 leading-loose">
+							Engineered for endurance and designed for speed. Experience gear
+							that moves as fast as you do. Premium fabrics. Unmatched comfort.
+							Limitless motion.
+						</p>
+					</div>
 					<div className="flex gap-5 mt-14">
 						<Button>
 							Explore More <FiFastForward />
