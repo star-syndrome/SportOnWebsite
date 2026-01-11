@@ -31,7 +31,7 @@ const categoryList = [
 
 const CategoriesSection = () => {
 	return (
-		<section id="category-section" className="container mx-auto">
+		<section id="category-section" className="container mx-auto pb-10 mt-20">
 			<div className="flex justify-between">
 				<h2 className="font-bold text-2xl">Browse By Categories</h2>
 				<Link href="#" className="flex gap-2 text-primary font-medium">
@@ -39,10 +39,10 @@ const CategoriesSection = () => {
 					<FiArrowRight className="self-center" />
 				</Link>
 			</div>
-			<div className="grid grid-cols-6 gap-12 mt-8 pb-20">
+			<div className="grid grid-cols-6 gap-12 mt-8">
 				{categoryList.map((category, index) => (
 					<div
-						className="flex justify-center rounded-lg bg-linear-to-r from-[#F1F1F1] to-[#F7F7F7] w-full aspect-square"
+						className="flex justify-center rounded-lg bg-linear-to-r from-[#F1F1F1] to-[#F7F7F7] w-45 aspect-square"
 						key={index}>
 						<div className="self-center">
 							<Image

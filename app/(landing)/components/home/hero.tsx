@@ -12,20 +12,18 @@ const HeroSection = () => {
 					alt="basketball"
 					width={432}
 					height={423}
-					className="grayscale absolute left-0 -top-20"
+					className="grayscale absolute left-17 -top-15"
 				/>
 				<div className="relative ml-40 w-full">
-					<p className="text-primary italic">Friday Sale, 50%</p>
-					<div>
-						<h1 className="font-extrabold text-[95px] italic bg-linear-to-b leading-tight from-black to-[#979797] bg-clip-text text-transparent">
-							WEAR YOUR <br /> TOP-QUALITY <br /> SPORTSWEAR
-						</h1>
-						<p className="w-1/2 mt-10 leading-loose">
-							Engineered for endurance and designed for speed. Experience gear
-							that moves as fast as you do. Premium fabrics. Unmatched comfort.
-							Limitless motion.
-						</p>
-					</div>
+					<div className="text-primary italic">Friday Sale, 50%</div>
+					<h1 className="font-extrabold text-[70px] italic bg-linear-to-b leading-tight from-black to-[#979797] bg-clip-text text-transparent">
+						WEAR YOUR <br /> TOP-QUALITY <br /> SPORTSWEAR
+					</h1>
+					<p className="w-120 text-sm mt-10 leading-loose">
+						Engineered for endurance and designed for speed. Experience gear
+						that moves as fast as you do. Premium fabrics. Unmatched comfort.
+						Limitless motion.
+					</p>
 					<div className="flex gap-5 mt-14">
 						<Button>
 							Explore More <FiFastForward />
@@ -44,9 +42,9 @@ const HeroSection = () => {
 				<Image
 					src="/images/img-hero.png"
 					alt="image sporton hero"
-					width={700}
-					height={950}
-					className="absolute -right-5 top-1/2 -translate-y-1/2"
+					width={550}
+					height={750}
+					className="absolute -right-3/4 top-1/3 -translate-y-1/2"
 				/>
 			</div>
 			<Image
