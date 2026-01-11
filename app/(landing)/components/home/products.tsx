@@ -35,10 +35,10 @@ const productList = [
 		imgUrl: "product-5.png",
 	},
 	{
-		name: "SportOn Basketball",
-		category: "Basketball",
-		price: 650000,
-		imgUrl: "product-6.png",
+		name: "SportOn HyperSoccer v2",
+		category: "Football",
+		price: 458000,
+		imgUrl: "product-4.png",
 	},
 	{
 		name: "SportOn Rockets Tennis",
