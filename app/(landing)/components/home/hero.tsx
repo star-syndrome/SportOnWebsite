@@ -1,5 +1,4 @@
 import { FiFastForward } from "react-icons/fi";
-
 import Image from "next/image";
 import Button from "../ui/button";
 
@@ -9,7 +8,7 @@ const HeroSection = () => {
 			<div className="relative self-center">
 				<Image
 					src="/images/img-basketball.png"
-					alt="basketball"
+					alt="Basketball"
 					width={452}
 					height={423}
 					className="grayscale absolute left-10 -top-15"
@@ -32,7 +31,7 @@ const HeroSection = () => {
 							Watch Video{" "}
 							<Image
 								src="/images/icon-play-video.svg"
-								alt="icon play video"
+								alt="Icon Play Video"
 								width={29}
 								height={29}
 							/>
@@ -41,7 +40,7 @@ const HeroSection = () => {
 				</div>
 				<Image
 					src="/images/img-hero.png"
-					alt="image sporton hero"
+					alt="Image SportOn Hero"
 					width={550}
 					height={750}
 					className="absolute -right-130 top-54 -translate-y-1/2"
@@ -51,7 +50,7 @@ const HeroSection = () => {
 				src="/images/img-ornament-hero.svg"
 				width={420}
 				height={420}
-				alt="image sporton"
+				alt="Image SportOn Ornament Hero"
 				className="absolute -right-50 top-1/2 -translate-y-1/2"
 			/>
 		</section>
