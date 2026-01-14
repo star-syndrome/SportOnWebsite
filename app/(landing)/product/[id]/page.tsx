@@ -19,7 +19,7 @@ const ProductDetail = () => {
 				<div className="bg-primary-light rounded-full text-primary py-2 px-6 w-fit mb-5">
 					Football
 				</div>
-				<p className="leading-loose mb-8">
+				<p className="leading-loose mb-8 text-justify">
 					The SportsOn HyperSoccer v2 is engineered for the player who demands
 					precision, power, and unrivaled speed on the pitch. Featuring a
 					striking, two-toned black and white design with deep crimson accents,
