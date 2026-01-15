@@ -42,7 +42,7 @@ const FileUpload = ({ onFileSelect }: TFileUploadProps) => {
 				onChange={(e) => handleFileChange(e.target.files?.[0])}
 			/>
 			{!file ? (
-				<div className="text-center my-5">
+				<div className="text-center my-5 cursor-pointer">
 					<FiUploadCloud className="text-primary mx-auto" />
 					<p className="text-xs">Upload Your Payment Receipt Here</p>
 				</div>
@@ -55,7 +55,7 @@ const FileUpload = ({ onFileSelect }: TFileUploadProps) => {
 					</p>
 					<button
 						onClick={removeFile}
-						className="flex gap-2 bg-primary/90 text-white mx-auto rounded mt-4 px-2">
+						className="flex gap-2 bg-primary/90 text-white mx-auto rounded mt-4 px-2 cursor-pointer">
 						<FiTrash className="self-center" /> Remove
 					</button>
 				</div>
