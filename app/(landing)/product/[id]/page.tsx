@@ -13,7 +13,7 @@ const ProductDetail = async ({ params }: TPageProps) => {
 	const product = await getProductDetail(id);
 
 	return (
-		<main className="container mx-auto py-20 flex gap-12 mb-10">
+		<main className="container mx-auto py-40 flex gap-12">
 			<div className="bg-primary-light aspect-square min-w-120 flex justify-center items-center">
 				<Image
 					src={getImageUrl(product.imageUrl)}
