@@ -5,13 +5,13 @@ import Button from "../ui/button";
 const HeroSection = () => {
 	return (
 		<section id="hero-section" className="container mx-auto h-screen flex">
-			<div className="relative self-center">
+			<div className="relative self-center pt-30">
 				<Image
 					src="/images/img-basketball.png"
 					alt="Basketball"
-					width={452}
-					height={423}
-					className="grayscale absolute left-10 -top-15"
+					width={352}
+					height={323}
+					className="grayscale absolute left-16 top-20"
 				/>
 				<div className="relative ml-35 w-full">
 					<div className="text-primary italic">Friday Sale, 50%</div>
@@ -43,7 +43,7 @@ const HeroSection = () => {
 					alt="Image SportOn Hero"
 					width={550}
 					height={750}
-					className="absolute -right-130 top-54 -translate-y-1/2"
+					className="absolute -right-125 top-1/2 -translate-y-1/2"
 				/>
 			</div>
 			<Image
