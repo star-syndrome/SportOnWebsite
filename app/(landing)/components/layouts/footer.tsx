@@ -7,7 +7,7 @@ const Footer = () => {
 			<div className="container mx-auto flex justify-between pt-14 pb-24">
 				<div className="w-105">
 					<Image
-						src="/images/logo-footer.svg"
+						src="/images/logos/logo-footer.svg"
 						alt="Logo SportOn Footer"
 						width={187}
 						height={44}

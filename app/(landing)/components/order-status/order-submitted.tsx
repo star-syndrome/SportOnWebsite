@@ -12,7 +12,7 @@ const OrderSubmitted = () => {
 	return (
 		<div className="bg-white w-160 p-16 flex flex-col justify-center items-center mx-auto">
 			<Image
-				src="/images/icon-order-submitted.svg"
+				src="/images/icons/icon-order-submitted.svg"
 				width={117}
 				height={117}
 				alt="Order Submitted"

@@ -16,7 +16,7 @@ const Header = () => {
 			<div className="flex justify-between gap-10 container mx-auto py-7">
 				<Link href="/">
 					<Image
-						src="/images/logo.svg"
+						src="/images/logos/logo.svg"
 						alt="SportOn Logo"
 						width={127}
 						height={30}
