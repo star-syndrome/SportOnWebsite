@@ -7,7 +7,7 @@ const HeroSection = () => {
 		<section id="hero-section" className="container mx-auto h-screen flex">
 			<div className="relative self-center pt-50">
 				<Image
-					src="/images/img-basketball.png"
+					src="/images/hero/img-basketball.png"
 					alt="Basketball"
 					width={432}
 					height={423}
@@ -32,7 +32,7 @@ const HeroSection = () => {
 						<Button variant="ghost">
 							Watch Video{" "}
 							<Image
-								src="/images/icon-play-video.svg"
+								src="/images/icons/icon-play-video.svg"
 								alt="Icon Play Video"
 								width={29}
 								height={29}
@@ -41,7 +41,7 @@ const HeroSection = () => {
 					</div>
 				</div>
 				<Image
-					src="/images/img-hero.png"
+					src="/images/hero/img-hero.png"
 					alt="Image SportOn Hero"
 					width={550}
 					height={750}
@@ -49,7 +49,7 @@ const HeroSection = () => {
 				/>
 			</div>
 			<Image
-				src="/images/img-ornament-hero.svg"
+				src="/images/hero/img-ornament-hero.svg"
 				width={420}
 				height={420}
 				alt="Image SportOn Ornament Hero"

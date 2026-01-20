@@ -4,7 +4,7 @@ const OrderConfirmed = () => {
 	return (
 		<div className="bg-white w-160 p-16 flex flex-col justify-center items-center mx-auto">
 			<Image
-				src="/images/icon-order-confirmed.svg"
+				src="/images/icons/icon-order-confirmed.svg"
 				width={117}
 				height={117}
 				alt="Order Confirmed"
