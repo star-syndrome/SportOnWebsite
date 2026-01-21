@@ -20,13 +20,18 @@ type TProductActionsProps = {
 const ProductActions = ({ product, stock }: TProductActionsProps) => {
 	const { push } = useRouter();
 	const [qty, setQty] = useState(1);
-	const { addItem } = useCartStore();
+	const { items, addItem } = useCartStore();
 
 	const handleToAddCart = () => {
 		addItem(product, qty);
 	};
 
 	const handleToCheckout = () => {
+		if (items.length === 0) {
+			alert("Your cart is empty!");
+			return;
+		}
+
 		push("/checkout");
 	};
 
