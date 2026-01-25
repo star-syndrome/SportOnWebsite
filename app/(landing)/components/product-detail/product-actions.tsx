@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Product } from "@/app/types";
 import { useCartStore } from "@/app/hooks/use-cart-store";
+import { toast } from "react-toastify";
 
 type TProductActionsProps = {
 	product: Product;
@@ -23,12 +24,15 @@ const ProductActions = ({ product, stock }: TProductActionsProps) => {
 	const { items, addItem } = useCartStore();
 
 	const handleToAddCart = () => {
-		addItem(product, qty);
+		const success = addItem(product, qty);
+		if (!success) {
+			toast.error("Stock not sufficient!");
+		}
 	};
 
 	const handleToCheckout = () => {
 		if (items.length === 0) {
-			alert("Your cart is empty!");
+			toast.error("Your cart is empty!");
 			return;
 		}
 
