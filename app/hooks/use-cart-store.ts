@@ -16,7 +16,7 @@ interface CardStore {
 	customerInfo: CustomerInfo | null;
 	setCustomerInfo: (info: CustomerInfo) => void;
 	items: CartItem[];
-	addItem: (product: Product, qty?: number) => void;
+	addItem: (product: Product, qty?: number) => boolean;
 	removeItem: (productId: string) => void;
 	reset: () => void;
 }
@@ -29,19 +29,32 @@ export const useCartStore = create<CardStore>()(
 				set({ customerInfo: info });
 			},
 			items: [],
-			addItem: (product, qty = 1) => {
+			addItem: (product, qty = 1): boolean => {
 				const items = get().items;
 				const existingItem = items.find((item) => item._id === product._id);
+
+				const currentQty = existingItem?.qty ?? 0;
+				const maxStock = product.stock;
+
+				if (currentQty + qty > maxStock) {
+					return false;
+				}
 
 				if (existingItem) {
 					set({
 						items: items.map((item) =>
-							item._id === product._id ? { ...item, qty: item.qty + qty } : item
+							item._id === product._id
+								? { ...item, qty: item.qty + qty }
+								: item,
 						),
 					});
 				} else {
-					set({ items: [...items, { ...product, qty }] });
+					set({
+						items: [...items, { ...product, qty }],
+					});
 				}
+
+				return true;
 			},
 			removeItem: (productId) => {
 				set({ items: get().items.filter((item) => item._id !== productId) });
@@ -52,6 +65,6 @@ export const useCartStore = create<CardStore>()(
 		}),
 		{
 			name: "cart-storage",
-		}
-	)
+		},
+	),
 );

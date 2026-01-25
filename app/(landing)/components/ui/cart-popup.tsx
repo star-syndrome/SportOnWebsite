@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import priceFormatter from "@/app/utils/priceFormatter";
 import { useCartStore } from "@/app/hooks/use-cart-store";
 import { getImageUrl } from "@/app/lib/api";
+import { toast } from "react-toastify";
 
 const CartPopup = () => {
 	const { push } = useRouter();
@@ -12,10 +13,15 @@ const CartPopup = () => {
 
 	const totalPrice = items.reduce(
 		(total, item) => total + item.price * item.qty,
-		0
+		0,
 	);
 
 	const handleToCheckout = () => {
+		if (items.length === 0) {
+			toast.error("Your cart is empty!");
+			return;
+		}
+
 		push("/checkout");
 	};
 

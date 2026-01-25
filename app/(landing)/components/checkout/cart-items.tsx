@@ -15,7 +15,7 @@ const CartItem = ({ handleToPayment }: TCartItems) => {
 
 	const totalPrice = items.reduce(
 		(total, item) => total + item.price * item.qty,
-		0
+		0,
 	);
 
 	return (

@@ -5,6 +5,7 @@ import CartItem from "../components/checkout/cart-items";
 import OrderInformation from "../components/checkout/order-information";
 import { CustomerInfo, useCartStore } from "@/app/hooks/use-cart-store";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const Checkout = () => {
 	const { push } = useRouter();
@@ -22,7 +23,7 @@ const Checkout = () => {
 			!formData.customerContact ||
 			!formData.customerAddress
 		) {
-			alert("Please make sure all fields are filled.");
+			toast.error("Please make sure all fields are filled!");
 			return;
 		}
 

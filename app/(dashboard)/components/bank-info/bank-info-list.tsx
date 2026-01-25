@@ -1,28 +1,19 @@
+import { Bank } from "@/app/types";
 import { FiCreditCard, FiEdit2, FiTrash2 } from "react-icons/fi";
 
-const bankData = [
-	{
-		bankName: "BCA",
-		accountNumber: "1231232323332",
-		accountName: "PT SportOn Digital Indonesia",
-	},
-	{
-		bankName: "Mandiri",
-		accountNumber: "1212312313123",
-		accountName: "PT SportOn Digital Indonesia",
-	},
-	{
-		bankName: "BRI",
-		accountNumber: "1123123122323",
-		accountName: "PT SportOn Digital Indonesia",
-	},
-];
+type TBankInfoListProps = {
+	banks: Bank[];
+	onEdit: (bank: Bank) => void;
+	onDelete: (id: string) => void;
+};
 
-const BankInfoList = () => {
+const BankInfoList = ({ banks, onEdit, onDelete }: TBankInfoListProps) => {
 	return (
 		<div className="grid grid-cols-3 gap-8">
-			{bankData.map((data, index) => (
-				<div className="bg-white rounded-lg border border-gray-200" key={index}>
+			{banks.map((data) => (
+				<div
+					className="bg-white rounded-lg border border-gray-200"
+					key={data._id}>
 					<div className="flex justify-between p-5">
 						<div className="flex gap-2 items-center">
 							<div className="flex justify-center items-center bg-blue-50 text-blue-600 rounded w-12 h-12">
@@ -34,10 +25,12 @@ const BankInfoList = () => {
 							</div>
 						</div>
 						<div className="flex gap-2 -mt-5 text-gray-600">
-							<button className="cursor-pointer">
+							<button className="cursor-pointer" onClick={() => onEdit?.(data)}>
 								<FiEdit2 size={20} />
 							</button>
-							<button className="cursor-pointer">
+							<button
+								className="cursor-pointer"
+								onClick={() => onDelete?.(data._id)}>
 								<FiTrash2 size={20} />
 							</button>
 						</div>
@@ -47,7 +40,7 @@ const BankInfoList = () => {
 						<div>{data.accountNumber}</div>
 					</div>
 					<div className="border-t border-gray-200 px-5 py-3 text-xs">
-						<span className="opacity-50">Holder: </span> PT SportOn Digital
+						<span className="opacity-50">Holder: </span> {data.accountName}
 					</div>
 				</div>
 			))}

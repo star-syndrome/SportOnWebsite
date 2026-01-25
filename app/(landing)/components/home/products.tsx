@@ -8,6 +8,7 @@ import priceFormatter from "@/app/utils/priceFormatter";
 import { Product } from "@/app/types";
 import { getImageUrl } from "@/app/lib/api";
 import { useCartStore } from "@/app/hooks/use-cart-store";
+import { toast } from "react-toastify";
 
 type TProductsProps = {
 	products: Product[];
@@ -19,7 +20,11 @@ const ProductsSection = ({ products }: TProductsProps) => {
 	const handleAddToCart = (e: React.MouseEvent, product: Product) => {
 		e.preventDefault();
 		e.stopPropagation();
-		addItem(product);
+
+		const success = addItem(product);
+		if (!success) {
+			toast.error("Stock not sufficient!");
+		}
 	};
 
 	return (

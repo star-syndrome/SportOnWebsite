@@ -1,40 +1,19 @@
+import { getImageUrl } from "@/app/lib/api";
+import { Category } from "@/app/types";
 import Image from "next/image";
 import { FiEdit2, FiTrash2 } from "react-icons/fi";
 
-const categoryData = [
-	{
-		name: "Swimming",
-		imageUrl: "/images/categories/category-swimming.png",
-		description: "This is swimming description",
-	},
-	{
-		name: "Running",
-		imageUrl: "/images/categories/category-running.png",
-		description: "This is running description",
-	},
-	{
-		name: "Tennis",
-		imageUrl: "/images/categories/category-tennis.png",
-		description: "This is tennis description",
-	},
-	{
-		name: "Football",
-		imageUrl: "/images/categories/category-football.png",
-		description: "This is football description",
-	},
-	{
-		name: "Running",
-		imageUrl: "/images/categories/category-badminton.png",
-		description: "This is badminton description",
-	},
-	{
-		name: "Basketball",
-		imageUrl: "/images/categories/category-basketball.png",
-		description: "This is basketball description",
-	},
-];
+type TCategoryTableProps = {
+	categories: Category[];
+	onEdit: (category: Category) => void;
+	onDelete: (id: string) => void;
+};
 
-const CategoryTable = () => {
+const CategoryTable = ({
+	categories,
+	onEdit,
+	onDelete,
+}: TCategoryTableProps) => {
 	return (
 		<div className="bg-white rounded-xl border border-gray-200">
 			<table className="w-full text-left border-collapse">
@@ -46,15 +25,15 @@ const CategoryTable = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{categoryData.map((data, index) => (
+					{categories.map((data) => (
 						<tr
-							key={index}
+							key={data._id}
 							className="border-b border-gray-200 last:border-b-0">
 							<td className="px-6 py-4 font-medium">
 								<div className="flex gap-3 items-center">
 									<div className="aspect-square">
 										<Image
-											src={data.imageUrl}
+											src={getImageUrl(data.imageUrl)}
 											width={52}
 											height={52}
 											alt={data.name}
@@ -66,10 +45,14 @@ const CategoryTable = () => {
 							</td>
 							<td className="px-6 py-4 font-medium">{data.description}</td>
 							<td className="flex gap-3 px-6 py-7.5 text-gray-600">
-								<button className="cursor-pointer">
+								<button
+									onClick={() => onEdit?.(data)}
+									className="cursor-pointer">
 									<FiEdit2 size={20} />
 								</button>
-								<button className="cursor-pointer">
+								<button
+									onClick={() => onDelete?.(data._id)}
+									className="cursor-pointer">
 									<FiTrash2 size={20} />
 								</button>
 							</td>
