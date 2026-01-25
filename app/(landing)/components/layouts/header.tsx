@@ -17,7 +17,7 @@ const Header = () => {
 	return (
 		<header className="fixed w-full z-20 backdrop-blur-xl bg-white/50">
 			<div className="flex justify-between gap-10 container mx-auto py-7">
-				<Link href="/">
+				<Link href="/" onClick={() => setActiveMenu("home")}>
 					<Image
 						src="/images/logos/logo.svg"
 						alt="SportOn Logo"
