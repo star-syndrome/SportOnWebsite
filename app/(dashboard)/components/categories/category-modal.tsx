@@ -49,7 +49,7 @@ const CategoryModal = ({
 		e.preventDefault();
 		setIsSubmitting(true);
 		try {
-			if (!formData.name || !formData.description || !imageFile) {
+			if (!formData.name || !formData.description) {
 				toast.error("Please make sure all fields are filled.");
 				return;
 			}

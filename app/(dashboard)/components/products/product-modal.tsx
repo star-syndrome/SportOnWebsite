@@ -70,8 +70,7 @@ const ProductModal = ({
 				!formData.description ||
 				!formData.price ||
 				!formData.stock ||
-				!formData.category ||
-				!imageFile
+				!formData.category
 			) {
 				toast.error("Please make sure all fields are filled.");
 				return;
