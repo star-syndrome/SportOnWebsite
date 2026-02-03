@@ -37,13 +37,16 @@ const ProductManagement = () => {
 
 		try {
 			await deleteProduct(productToDeleteId);
+
 			fetchProducts();
-			toast.success("Product deleted successfully!");
+
+			toast.success("Product deleted successfully.");
+
 			setIsDeleteModalOpen(false);
 			setProductToDeleteId("");
 		} catch (error) {
-			console.error("Failed to delete product!", error);
-			toast.error("Failed to delete product!");
+			console.error("Failed to delete product:", error);
+			toast.error("Failed to delete product.");
 		}
 	};
 
@@ -52,7 +55,7 @@ const ProductManagement = () => {
 			const data = await getAllProducts();
 			setIsProduct(data);
 		} catch (error) {
-			console.error("Failed to fetch products!", error);
+			console.error("Failed to fetch products:", error);
 		}
 	};
 

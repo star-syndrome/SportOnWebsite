@@ -23,7 +23,7 @@ const ProductsSection = ({ products }: TProductsProps) => {
 
 		const success = addItem(product);
 		if (!success) {
-			toast.error("Stock not sufficient!");
+			toast.error("Stock not sufficient.");
 		}
 	};
 

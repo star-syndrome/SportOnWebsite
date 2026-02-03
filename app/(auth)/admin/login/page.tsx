@@ -31,7 +31,7 @@ const LoginPage = () => {
 			setErrorMessage(
 				err.message || "Something went wrong, please try again later.",
 			);
-			console.error("Login error: ", err);
+			console.error("Login error:", err);
 		} finally {
 			setIsLoading(false);
 		}

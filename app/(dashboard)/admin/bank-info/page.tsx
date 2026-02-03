@@ -37,13 +37,16 @@ const BankManagement = () => {
 
 		try {
 			await deleteBank(bankToDeleteId);
+
 			fetchBanks();
-			toast.success("Bank info deleted successfully!");
+
+			toast.success("Bank information deleted successfully.");
+
 			setIsDeleteModalOpen(false);
 			setBankToDeleteId("");
 		} catch (error) {
-			console.error("Failed to delete bank info!", error);
-			toast.error("Failed to delete bank info!");
+			console.error("Failed to delete bank information:", error);
+			toast.error("Failed to delete bank information.");
 		}
 	};
 
@@ -52,7 +55,7 @@ const BankManagement = () => {
 			const data = await getAllBanks();
 			setBanks(data);
 		} catch (error) {
-			console.error("Failed to fetch banks!", error);
+			console.error("Failed to fetch banks:", error);
 		}
 	};
 

@@ -19,7 +19,7 @@ type ProductFormData = {
 	name: string;
 	price: number;
 	stock: number;
-	categoryId: string;
+	category: string;
 	description: string;
 };
 
@@ -38,7 +38,7 @@ const ProductModal = ({
 	const [formData, setFormData] = useState<ProductFormData>({
 		name: "",
 		description: "",
-		categoryId: "",
+		category: "",
 		price: 0,
 		stock: 0,
 	});
@@ -48,7 +48,7 @@ const ProductModal = ({
 			const data = await getAllCategories();
 			setCategories(data);
 		} catch (error) {
-			console.error("Failed to fetch categories!", error);
+			console.error("Failed to fetch categories:", error);
 		}
 	};
 
@@ -65,11 +65,23 @@ const ProductModal = ({
 		e.preventDefault();
 		setIsSubmitting(true);
 		try {
+			if (
+				!formData.name ||
+				!formData.description ||
+				!formData.price ||
+				!formData.stock ||
+				!formData.category ||
+				!imageFile
+			) {
+				toast.error("Please make sure all fields are filled.");
+				return;
+			}
+
 			const data = new FormData();
 			data.append("name", formData.name);
 			data.append("price", formData.price.toString());
 			data.append("stock", formData.stock.toString());
-			data.append("categoryId", formData.categoryId);
+			data.append("category", formData.category);
 			data.append("description", formData.description);
 			if (imageFile) {
 				data.append("image", imageFile);
@@ -85,7 +97,7 @@ const ProductModal = ({
 			setFormData({
 				name: "",
 				description: "",
-				categoryId: "",
+				category: "",
 				price: 0,
 				stock: 0,
 			});
@@ -94,19 +106,19 @@ const ProductModal = ({
 
 			toast.success(
 				isEditMode
-					? "Product updated successfully!"
-					: "Product added successfully!",
+					? "Product updated successfully."
+					: "Product added successfully.",
 			);
 
 			onSuccess?.();
 			onClose();
 		} catch (error) {
 			console.error(
-				product ? "Failed to update product!" : "Failed to create product!",
+				product ? "Failed to update product:" : "Failed to create product:",
 				error,
 			);
 			toast.error(
-				product ? "Failed to update product!" : "Failed to create product!",
+				product ? "Failed to update product." : "Failed to create product.",
 			);
 		} finally {
 			setIsSubmitting(false);
@@ -118,7 +130,7 @@ const ProductModal = ({
 			setFormData({
 				name: product.name,
 				description: product.description,
-				categoryId: product.category._id,
+				category: product.category._id,
 				price: product.price,
 				stock: product.stock,
 			});
@@ -127,7 +139,7 @@ const ProductModal = ({
 			setFormData({
 				name: "",
 				description: "",
-				categoryId: "",
+				category: "",
 				price: 0,
 				stock: 0,
 			});
@@ -195,11 +207,11 @@ const ProductModal = ({
 							</div>
 						</div>
 						<div className="input-group-admin">
-							<label htmlFor="categoryId">Category</label>
+							<label htmlFor="category">Category</label>
 							<select
-								name="categoryId"
-								id="categoryId"
-								value={formData.categoryId}
+								name="category"
+								id="category"
+								value={formData.category}
 								onChange={handleChange}>
 								<option value="" disabled>
 									Select Category

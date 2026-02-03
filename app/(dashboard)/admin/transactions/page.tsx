@@ -31,16 +31,15 @@ const CategoryManagement = () => {
 		status: "paid" | "rejected",
 	) => {
 		try {
-			const formData = new FormData();
-			formData.append("status", status);
-			await updateTransaction(id, formData);
+			const data = { status: status };
+			await updateTransaction(id, data);
 
-			toast.success("Transaction status updated!");
+			toast.success("Transaction status updated.");
 
 			await fetchTransactions();
 		} catch (error) {
-			console.error("Failed to update transaction status!");
-			toast.error("Failed to update transaction status!");
+			console.error("Failed to update transaction status:", error);
+			toast.error("Failed to update transaction status.");
 		} finally {
 			setIsModalOpen(false);
 		}

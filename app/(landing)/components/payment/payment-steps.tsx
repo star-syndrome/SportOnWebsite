@@ -23,7 +23,7 @@ const PaymentSteps = () => {
 
 	const handleConfirmPayment = async () => {
 		if (!file) {
-			toast.error("Please upload your payment receipt!");
+			toast.error("Please upload your payment receipt.");
 			return;
 		}
 
@@ -58,7 +58,7 @@ const PaymentSteps = () => {
 
 			const res = await transactionCheckout(formData);
 
-			toast.success("Your transaction has been created successfully!");
+			toast.success("Your transaction has been created successfully.");
 			reset();
 
 			push(`/order-status/${res._id}`);

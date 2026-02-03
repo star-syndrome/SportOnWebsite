@@ -27,15 +27,6 @@ const CategoryManagement = () => {
 		setSelectedCategory(null);
 	};
 
-	const fetchCategories = async () => {
-		try {
-			const data = await getAllCategories();
-			setCategories(data);
-		} catch (error) {
-			console.error("Failed to fetch categories!", error);
-		}
-	};
-
 	const handleEdit = (category: Category) => {
 		setSelectedCategory(category);
 		setIsModalOpen(true);
@@ -51,13 +42,25 @@ const CategoryManagement = () => {
 
 		try {
 			await deleteCategory(categoryToDeleteId);
+
 			fetchCategories();
-			toast.success("category deleted successfully!");
+
+			toast.success("Category deleted successfully.");
+
 			setIsDeleteModalOpen(false);
 			setCategoryToDeleteId("");
 		} catch (error) {
-			console.error("Failed to delete category!", error);
-			toast.error("Failed to delete category!");
+			console.error("Failed to delete category:", error);
+			toast.error("Failed to delete category.");
+		}
+	};
+
+	const fetchCategories = async () => {
+		try {
+			const data = await getAllCategories();
+			setCategories(data);
+		} catch (error) {
+			console.error("Failed to fetch categories:", error);
 		}
 	};
 

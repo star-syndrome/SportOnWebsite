@@ -36,6 +36,15 @@ const BankInfoModal = ({
 		e.preventDefault();
 		setIsSubmitting(true);
 		try {
+			if (
+				!formData.accountName ||
+				!formData.accountNumber ||
+				!formData.bankName
+			) {
+				toast.error("Please make sure all fields are filled.");
+				return;
+			}
+
 			if (bank) {
 				await updateBank(bank._id, formData);
 			} else {
@@ -51,19 +60,23 @@ const BankInfoModal = ({
 
 			toast.success(
 				isEditMode
-					? "Bank info updated successfully!"
-					: "Bank info added successfully!",
+					? "Bank information updated successfully."
+					: "Bank information added successfully.",
 			);
 
 			onSuccess?.();
 			onClose();
 		} catch (error) {
 			console.error(
-				bank ? "Failed to update bank info!" : "Failed to create bank info!",
+				bank
+					? "Failed to update bank information:"
+					: "Failed to create bank information:",
 				error,
 			);
 			toast.error(
-				bank ? "Failed to update bank info!" : "Failed to create bank info!",
+				bank
+					? "Failed to update bank information."
+					: "Failed to create bank information.",
 			);
 		} finally {
 			setIsSubmitting(false);

@@ -23,7 +23,7 @@ const Checkout = () => {
 			!formData.customerContact ||
 			!formData.customerAddress
 		) {
-			toast.error("Please make sure all fields are filled!");
+			toast.error("Please make sure all fields are filled.");
 			return;
 		}
 

@@ -26,13 +26,13 @@ const ProductActions = ({ product, stock }: TProductActionsProps) => {
 	const handleToAddCart = () => {
 		const success = addItem(product, qty);
 		if (!success) {
-			toast.error("Stock not sufficient!");
+			toast.error("Stock not sufficient.");
 		}
 	};
 
 	const handleToCheckout = () => {
-		if (items.length === 0) {
-			toast.error("Your cart is empty!");
+		if (!items.length) {
+			toast.error("Your cart is empty.");
 			return;
 		}
 

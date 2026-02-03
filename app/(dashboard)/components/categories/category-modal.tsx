@@ -49,6 +49,11 @@ const CategoryModal = ({
 		e.preventDefault();
 		setIsSubmitting(true);
 		try {
+			if (!formData.name || !formData.description || !imageFile) {
+				toast.error("Please make sure all fields are filled.");
+				return;
+			}
+
 			const data = new FormData();
 			data.append("name", formData.name);
 			data.append("description", formData.description);
@@ -72,19 +77,19 @@ const CategoryModal = ({
 
 			toast.success(
 				isEditMode
-					? "Category updated successfully!"
-					: "Category added successfully!",
+					? "Category updated successfully."
+					: "Category added successfully.",
 			);
 
 			onSuccess?.();
 			onClose();
 		} catch (error) {
 			console.error(
-				category ? "Failed to update category!" : "Failed to create category!",
+				category ? "Failed to update category:" : "Failed to create category:",
 				error,
 			);
 			toast.error(
-				category ? "Failed to update category!" : "Failed to create category!",
+				category ? "Failed to update category." : "Failed to create category.",
 			);
 		} finally {
 			setIsSubmitting(false);

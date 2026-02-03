@@ -17,8 +17,8 @@ const CartPopup = () => {
 	);
 
 	const handleToCheckout = () => {
-		if (items.length === 0) {
-			toast.error("Your cart is empty!");
+		if (!items.length) {
+			toast.error("Your cart is empty.");
 			return;
 		}
 
