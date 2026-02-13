@@ -1,4 +1,5 @@
 import { Transaction } from "@/app/types";
+import dateFormatter from "@/app/utils/dateFormatter";
 import priceFormatter from "@/app/utils/priceFormatter";
 import { FiEye } from "react-icons/fi";
 
@@ -41,13 +42,7 @@ const TransactionTable = ({
 							key={data._id}
 							className="border-b border-gray-200 last:border-b-0">
 							<td className="px-6 py-4 font-medium">
-								{new Date(data.createdAt).toLocaleDateString("id-ID", {
-									day: "numeric",
-									month: "short",
-									year: "numeric",
-									hour: "2-digit",
-									minute: "2-digit",
-								})}
+								{dateFormatter(data.createdAt)}
 							</td>
 							<td className="px-6 py-4 font-medium">{data.customerName}</td>
 							<td className="px-6 py-4 font-medium">{data.customerContact}</td>

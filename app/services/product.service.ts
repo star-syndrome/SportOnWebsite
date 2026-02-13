@@ -9,6 +9,12 @@ export const getProductDetail = async (id: string): Promise<Product> => {
 	return await fetchAPI<Product>(`/products/${id}`);
 };
 
+export const searchProducts = async (query: string): Promise<Product[]> => {
+	return await fetchAPI<Product[]>(
+		`/products/search?q=${encodeURIComponent(query)}`,
+	);
+};
+
 export const createProduct = async (data: FormData): Promise<Product> => {
 	return await fetchAPI<Product>("/products", {
 		method: "POST",

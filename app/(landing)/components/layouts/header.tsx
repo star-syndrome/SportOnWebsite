@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FiSearch, FiShoppingBag } from "react-icons/fi";
+import { FiShoppingBag } from "react-icons/fi";
 import CartPopup from "../ui/cart-popup";
 import { useState } from "react";
 import { useCartStore } from "@/app/hooks/use-cart-store";
+import SearchModal from "../ui/search-modal";
 
 const Header = () => {
 	const { items } = useCartStore();
@@ -27,7 +28,7 @@ const Header = () => {
 				</Link>
 				<nav className="flex gap-24 font-medium">
 					<Link
-						href="/#hero-section"
+						href="/"
 						onClick={() => setActiveMenu("home")}
 						className={activeMenu === "home" ? activeClass : ""}>
 						Home
@@ -46,7 +47,7 @@ const Header = () => {
 					</Link>
 				</nav>
 				<div className="relative flex gap-10">
-					<FiSearch size={24} />
+					<SearchModal />
 					<button
 						className="relative cursor-pointer -top-1"
 						onClick={() => setIsCartPopupOpen(!isCartPopupOpen)}>

@@ -6,6 +6,7 @@ import { FiCheck, FiX } from "react-icons/fi";
 import { Transaction } from "@/app/types";
 import { useState } from "react";
 import { getImageUrl } from "@/app/lib/api";
+import dateFormatter from "@/app/utils/dateFormatter";
 
 type TTransactionModalProps = {
 	transaction?: Transaction | null;
@@ -59,13 +60,7 @@ const TransactionModal = ({
 						<div className="flex justify-between font-medium">
 							<div className="opacity-50">Date</div>
 							<div className="text-right">
-								{new Date(transaction.createdAt).toLocaleDateString("id-ID", {
-									day: "numeric",
-									month: "short",
-									year: "numeric",
-									hour: "2-digit",
-									minute: "2-digit",
-								})}
+								{dateFormatter(transaction.createdAt)}
 							</div>
 						</div>
 						<div className="flex justify-between font-medium">
